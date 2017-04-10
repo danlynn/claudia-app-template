@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker run --rm --privileged danlynn/claudia:2.9.0 date -u $(date -u +%m%d%H%M%Y)
