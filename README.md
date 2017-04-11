@@ -14,15 +14,17 @@ According to the [Claudia.js website](https://www.claudiajs.com), Claudia.js is 
 
 ![claudia.js logo](https://raw.githubusercontent.com/danlynn/claudia/master/claudiajs.png)
 
-This means that it is a great way to develop and deploy node.js projects on AWS.  It vastly simplifies the process of getting up and going by doing handling all the deployment configuration and tasks for you.  Go and check-out the [hello-world tutorial](https://www.claudiajs.com/tutorials/hello-world-lambda.html) on the Claudia.js website now (if you haven't already).
+This means that it is a great way to develop and deploy node.js projects on AWS.  It vastly simplifies the process of getting up and going by doing handling all the deployment configuration and tasks for you.
 
 ## How to use
 
-The full description of how to use this template can be found in the README for the [claudia docker image](https://hub.docker.com/r/danlynn/claudia/) on the Docker Hub site.  Go there NOW to see a short hello-world tutorial using this template and the docker image.
+The full description of how to use this template can be found in the README for the [claudia docker image](https://hub.docker.com/r/danlynn/claudia/) on Docker Hub.  Go there [NOW](https://hub.docker.com/r/danlynn/claudia/) to try a short hello-world tutorial using this template and the docker image.
 
 Assuming that you already have Docker installed, you can create a new Claudia.js project and install this template using the following commands.  Note that there is no need to install anything!  The docker image contains everything that you need.
 
 ```bash
+$ mkdir hello-world
+$ cd hello-world
 $ docker run --rm -it -v "$(pwd):/myapp" danlynn/claudia:latest install-claudia-app-template
 ```
 
@@ -48,7 +50,7 @@ synctime
 
 The `bash`, `logs`, and `synctime` are helper scripts that you can use to interact with the claudia docker image.
 
-The `config` and `credentials` in the `.aws` directory are default config files that you can edit to provide your own credentials and preferences for aws region, etc.
+The `config` and `credentials` in the `.aws` directory are default config files that you can edit to provide your own credentials and preferences for aws region, etc.  This is a project-specific configuration.  Thus, if you launch additional claudia docker containers from other lambda project directories, they will all use their own project directory's aws configuration.
 
 The .gitignore simply lists the `.aws` directory to be ignored.
 
