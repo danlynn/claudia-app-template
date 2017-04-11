@@ -2,10 +2,4 @@
 
 ./synctime
 
-lambda_name=$(echo $(docker run --rm -ti -v "$(pwd):/myapp" danlynn/claudia:2.9.0 grep -P -o '(?<="name":\s").*(?=")' claudia.json) | tr -d "\r")
-
-# cmd='echo -ne "$(aws logs filter-log-events --output json --region us-east-1 --log-group-name "/aws/lambda/'$lambda_name'" | grep -P -o "(?<=\"message\":\\s\").*(?=\")")"'
-
-cmd='echo -ne "$(aws logs filter-log-events --output json --log-group-name "/aws/lambda/'$lambda_name'" | grep -P -o "(?<=\"message\":\\s\").*(?=\")")"'
-
-docker run --rm -ti -v "$(pwd):/myapp" -v "$(pwd)/.aws:/root/.aws" -e "AWS_PROFILE=claudia" danlynn/claudia:2.9.0 bash -c "$cmd"
+docker run --rm -ti -v "$(pwd):/myapp" -v "$(pwd)/.aws:/root/.aws" -e "AWS_PROFILE=claudia" danlynn/claudia:2.9.0 logs
