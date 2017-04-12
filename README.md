@@ -1,6 +1,6 @@
 # Template: Claudia.js
 
--
+---
 
 ## What is claudia-app-template?
 
@@ -48,12 +48,12 @@ logs
 synctime
 </pre>
 
-The `bash`, `logs`, and `synctime` are helper scripts that you can use to interact with the claudia docker image.
-
 The `config` and `credentials` in the `.aws` directory are default config files that you can edit to provide your own credentials and preferences for aws region, etc.  This is a project-specific configuration.  Thus, if you launch additional claudia docker containers from other lambda project directories, they will all use their own project directory's aws configuration.
 
-The .gitignore simply lists the `.aws` directory to be ignored.
+The `.claudia-version` contains the docker image version to be used by the helper scripts.  It is automatically assigned when you run the `install-claudia-app-template` command with the docker image.
+
+The `.gitignore` simply lists the `.aws` directory to be ignored.
 
 The `TEMPLATE-README.md` is this documentation that you are currently reading.
 
-The `.claudia-version` contains the docker image version to be used by the helper scripts.  It is automatically assigned when you run the `install-claudia-app-template` command with the docker image.
+The `bash`, `logs`, and `synctime` are helper scripts that you can use to interact with the claudia docker image.
